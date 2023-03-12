@@ -43,7 +43,8 @@ router.post(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;
-      const imageUrl = await actionScraperPuppeteer(data.image);
+
+      const imageUrl = await actionScraperPuppeteer(data.link);
 
       const link = await prisma.link.create({
         data: {
